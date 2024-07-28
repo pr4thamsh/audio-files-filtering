@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Transcription and Filtering App</title>
+</head>
+<body>
+    <h1>Audio Transcription and Filtering App</h1>
+    <form action="{{ url_for('main.index') }}" method="POST" enctype="multipart/form-data">
+        <div>
+            <label for="file">Choose an audio file:</label>
+            <input type="file" id="file" name="file" accept=".wav,.mp3,.ogg" required>
+        </div>
+        <div>
+            <label for="service">Choose transcription service:</label>
+            <select id="service" name="service">
+                <option value="speech_recognition">Speech Recognition</option>
+                <option value="deepgram">Deepgram</option>
+            </select>
+        </div>
+        <div>
+            <label for="categories_prompt">Enter categories and instructions:</label>
+            <textarea id="categories_prompt" name="categories_prompt" rows="4" cols="50" required></textarea>
+        </div>
+        <div>
+            <input type="submit" value="Transcribe and Filter">
+        </div>
+    </form>
+</body>
+</html>
